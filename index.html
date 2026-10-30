@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dingwall Bass Encyclopedia — Dingwall 貝斯品牌與型號圖鑑">
+<title>DINGWALL / Bass Encyclopedia</title>
+<style>
+:root{--bg:#0b0d10;--panel:#14181e;--panel2:#1b2028;--line:#303844;--text:#edf1f5;--muted:#9ba6b3;--accent:#d7ff3f;--accent2:#9bbd24}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.65}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{width:min(1160px,92%);margin:auto}
+header{border-bottom:1px solid var(--line);background:#0b0d10eF;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:900;letter-spacing:.16em;font-size:18px}.logo span{color:var(--accent)}
+.nav small{color:var(--muted);letter-spacing:.12em}
+.hero{padding:90px 0 76px;background:radial-gradient(ellipse at 78% 15%,#27311a 0,transparent 38%),linear-gradient(135deg,#10151b,#0b0d10 65%)}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.22em;font-weight:800}
+h1{font-size:clamp(42px,8vw,86px);line-height:.98;letter-spacing:-.055em;margin:18px 0}
+h1 span{color:var(--accent)}
+.hero p{max-width:650px;color:#b5bec8;font-size:17px}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:38px;color:var(--muted);font-size:12px;letter-spacing:.12em}
+.hero-meta b{display:block;color:var(--text);font-size:19px;letter-spacing:0}
+section{padding:66px 0;border-bottom:1px solid var(--line)}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+h2{font-size:clamp(27px,4vw,40px);letter-spacing:-.035em;margin:5px 0}
+.sub{color:var(--muted);margin:0;max-width:650px}
+.intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px}
+.panel h3{margin:0 0 10px;font-size:19px}.panel p{color:var(--muted);margin:0}
+.fact{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fact div{padding:18px;background:var(--panel2);border-radius:10px}
+.fact strong{display:block;color:var(--accent);font-size:23px}.fact span{font-size:12px;color:var(--muted)}
+.searchbar{display:flex;gap:10px;margin:24px 0 14px}
+.searchbar input{flex:1;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 17px;color:var(--text);font:inherit;outline:none}
+.searchbar input:focus{border-color:var(--accent)}
+.searchbar button,.filter{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:9px;padding:11px 15px;cursor:pointer;font:inherit}
+.searchbar button:hover,.filter:hover,.filter.active{background:var(--accent);border-color:var(--accent);color:#10140a}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.result-count{color:var(--muted);font-size:13px;margin-bottom:14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.model-card{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.model-card:hover{transform:translateY(-3px);border-color:#7b8d3b}
+.card-art{height:230px;background:#e8e9e5;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:16px}.card-art img{width:100%;height:100%;object-fit:contain;object-position:center;position:relative;z-index:2;mix-blend-mode:multiply;filter:drop-shadow(0 10px 12px #0002);transition:transform .25s ease}.model-card:hover .card-art img{transform:scale(1.035)}.card-art .fallback{font-size:52px;font-weight:900;letter-spacing:-.08em;color:#ffffff18;z-index:1}.card-art .placeholder-art{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:42px;color:#58636e;background:linear-gradient(145deg,#e8e9e5,#cfd3cf);letter-spacing:-.04em}.card-art .placeholder-art:after{content:"MODEL ARCHIVE";position:absolute;bottom:12px;right:14px;font-size:9px;letter-spacing:.2em;color:#727b80}.modal-image{width:100%;height:330px;object-fit:contain;object-position:center;background:#e8e9e5;border-radius:10px;margin:14px 0 10px;padding:18px;mix-blend-mode:normal}.image-credit{font-size:10px;color:var(--muted);margin:0 0 12px}
+.card-art:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #ffffff12;border-radius:50%}
+.card-art:after{content:"";position:absolute;width:155px;height:155px;border:1px solid #ffffff12;border-radius:50%}
+.card-art span{font-size:52px;font-weight:900;letter-spacing:-.08em;color:#ffffff18;z-index:1}
+.card-body{padding:19px;display:flex;flex-direction:column;flex:1}
+.tag{font-size:10px;color:var(--accent);letter-spacing:.17em;font-weight:800;text-transform:uppercase}
+.card-body h3{font-size:22px;margin:5px 0 7px}.card-body p{font-size:13px;color:var(--muted);margin:0 0 18px;flex:1}
+.card-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:13px;font-size:12px;color:var(--muted)}
+.more{color:var(--accent);font-weight:700;cursor:pointer;background:none;border:0;font:inherit;padding:0}
+.empty{display:none;padding:35px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+.feature-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feature{padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.feature .num{color:var(--accent);font-weight:900;font-size:12px;letter-spacing:.15em}
+.feature h3{margin:10px 0 6px}.feature p{margin:0;color:var(--muted);font-size:13px}
+footer{padding:32px 0;color:var(--muted);font-size:12px}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:30}
+.modal.open{display:flex}.modal-box{width:min(720px,100%);max-height:88vh;overflow:auto;background:#12171d;border:1px solid #46515e;border-radius:16px;padding:28px;position:relative}
+.close{position:absolute;right:18px;top:15px;background:none;border:0;color:var(--muted);font-size:25px;cursor:pointer}
+.modal-box h2{font-size:34px;margin:8px 35px 8px 0}.modal-desc{color:var(--muted)}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}
+.spec{background:var(--panel2);padding:13px;border-radius:9px}.spec small{display:block;color:var(--muted);font-size:11px}.spec b{font-size:14px}
+.demo-area{margin:22px 0;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.demo-area h3{margin:0 0 8px}.demo-status{font-size:13px;color:var(--muted);margin:0 0 12px}.demo-button{display:inline-block;border:0;border-radius:8px;padding:11px 16px;background:var(--accent);color:#10140a;font:inherit;font-weight:800;cursor:pointer}.demo-frame{position:relative;width:100%;aspect-ratio:16/9;margin-top:14px;background:#000;border-radius:9px;overflow:hidden}.demo-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.modal-box h3{margin-bottom:6px}.modal-box ul{padding-left:20px;color:#c4cbd3}.modal-box li{margin:5px 0}
+.sources{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.buy-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.buy-panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}.buy-panel h3{margin:0 0 8px}.buy-panel p,.buy-panel li{color:var(--muted);font-size:13px}.buy-panel ul{padding-left:19px;margin:10px 0 0}.recommend-form{display:grid;gap:13px;margin-top:15px}.recommend-form label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}.recommend-form select{width:100%;padding:12px;background:#0d1116;color:var(--text);border:1px solid var(--line);border-radius:8px;font:inherit}.recommend-form button{padding:13px 16px;background:var(--accent);color:#111;border:0;border-radius:8px;font-weight:800;cursor:pointer}.recommend-result{display:none;margin-top:16px;padding:17px;border:1px solid #647a25;background:#1a2111;border-radius:10px}.recommend-result.show{display:block}.recommend-result h4{margin:0 0 6px;color:var(--accent);font-size:20px}.recommend-result p{margin:5px 0;color:#c8d0c0}.guide-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.guide-step{padding:16px;border-radius:10px;background:var(--panel2)}.guide-step b{color:var(--accent);font-size:12px;letter-spacing:.1em}.guide-step h4{margin:6px 0}.guide-step p{margin:0;color:var(--muted);font-size:12px}
+@media(max-width:800px){.cards{grid-template-columns:repeat(2,1fr)}.intro-grid{grid-template-columns:1fr}.feature-list{grid-template-columns:1fr 1fr}.buy-grid{grid-template-columns:1fr}.guide-steps{grid-template-columns:1fr}}
+@media(max-width:540px){.hero{padding:65px 0}.cards{grid-template-columns:1fr}.feature-list{grid-template-columns:1fr}.section-top{display:block}.searchbar{flex-wrap:wrap}.searchbar button{width:100%}.specs{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="logo">DINGWALL<span>.</span></div><small>BASS ENCYCLOPEDIA&nbsp; / &nbsp;FIELD GUIDE</small></div></header>
+<main>
+<div class="hero"><div class="wrap">
+<div class="eyebrow">THE WORLD OF MULTI-SCALE BASS</div>
+<h1>LOW END.<br><span>REDEFINED.</span></h1>
+<p>探索 Dingwall Guitars 的品牌故事、扇形指板設計，以及不同系列貝斯的定位與特色。這是一份為貝斯玩家打造的入門型號圖鑑。</p>
+<div class="hero-meta"><div><b>1987</b>FOUNDED</div><div><b>CANADA</b> SASKATOON</div><div><b>MULTI-SCALE</b>DESIGN PHILOSOPHY</div></div>
+</div></div>
+
+<section><div class="wrap">
+<div class="section-top"><div><div class="eyebrow">01 / THE BRAND</div><h2>關於 Dingwall</h2></div></div>
+<div class="intro-grid">
+<div class="panel"><h3>重新思考低音的可能性</h3><p>Dingwall Guitars 由 Sheldon Dingwall 創立，品牌成立於 1987 年，總部位於加拿大薩斯卡通。品牌以多弦數、扇形指板（Fanned Frets / Multi-Scale）以及現代化拾音器與電路配置聞名，致力於讓不同弦之間的張力、音準與低頻反應更加平衡。</p></div>
+<div class="fact"><div><strong>37″</strong><span>常見五弦低 B 弦有效弦長</span></div><div><strong>34″</strong><span>常見五弦高 G 弦有效弦長</span></div><div><strong>Fanned</strong><span>扇形琴格設計</span></div><div><strong>Modern</strong><span>現代低頻取向</span></div></div>
+</div>
+</div></section>
+
+<section id="catalog"><div class="wrap">
+<div class="section-top"><div><div class="eyebrow">02 / MODEL DATABASE</div><h2>型號圖鑑</h2><p class="sub">輸入系列名稱或關鍵字，即可快速找到型號。點選卡片查看簡介、主要特色與官方影片資訊。</p></div></div>
+<div class="searchbar"><input id="search" type="search" placeholder="搜尋型號，例如 NG、Combustion、D-Roc..." aria-label="搜尋型號"><button id="clear">清除搜尋</button></div>
+<div class="filters" id="filters"><button class="filter active" data-filter="all">全部型號</button><button class="filter" data-filter="signature">Signature</button><button class="filter" data-filter="production">Production</button><button class="filter" data-filter="custom">Custom / Canada</button><button class="filter" data-filter="historical">歷史／特殊型號</button></div>
+<div class="result-count" id="count"></div><p class="sub" style="font-size:12px;margin:-6px 0 18px">註：部分新增型號暫以統一風格的型號識別圖呈現；有核實到的商品照片才會直接使用實拍圖，避免放錯琴款。</p>
+<div class="cards" id="cards"></div><div class="empty" id="empty">找不到符合的型號，試試其他關鍵字。</div>
+</div></section>
+
+<section id="buying-guide"><div class="wrap">
+<div class="section-top"><div><div class="eyebrow">03 / BUYER'S GUIDE</div><h2>購買攻略與型號推薦</h2><p class="sub">先確認需求，再挑型號。以下推薦以系列定位為主，不以未經確認的即時售價作判斷。</p></div></div>
+<div class="buy-grid">
+<div class="buy-panel"><div class="tag">MODEL MATCH</div><h3>找到適合你的 Dingwall</h3><p>選擇你的主要需求，網站會依照用途給出一個起點型號與挑選理由。</p>
+<div class="recommend-form">
+<div><label for="budget">預算方向</label><select id="budget"><option value="value">重視價格與實用性</option><option value="mid">中高階、想要更個人化</option><option value="premium">高階／客製化取向</option><option value="open">預算彈性，先看需求</option></select></div>
+<div><label for="strings">弦數需求</label><select id="strings"><option value="5">五弦（需要低 B）</option><option value="4">四弦</option><option value="6">六弦</option><option value="any">還不確定</option></select></div>
+<div><label for="style">主要音樂方向</label><select id="style"><option value="metal">現代金屬／重型搖滾</option><option value="versatile">多用途：搖滾、流行、錄音</option><option value="vintage">偏好傳統、較多元的音色</option><option value="custom">重視客製化與細節</option></select></div>
+<button type="button" id="recommendBtn">幫我推薦型號</button>
+</div><div class="recommend-result" id="recommendResult" aria-live="polite"></div>
+</div>
+<div class="buy-panel"><div class="tag">BEFORE YOU BUY</div><h3>實際試琴時，記得確認</h3><ul>
+<li><b>多尺度手感：</b>親自試彈 34–37 吋配置，確認左手伸展與右手撥弦位置是否自然。</li>
+<li><b>低 B 弦反應：</b>聽音頭是否清楚、音準是否穩定，也要確認你喜歡的弦張力。</li>
+<li><b>琴頸與重量：</b>站姿、坐姿都試試，確認琴身平衡、琴頸厚度與整體重量。</li>
+<li><b>拾音器與電路：</b>實際切換 Quad-Tone、主動／被動與 EQ，確認常用音色是否容易取得。</li>
+<li><b>版本差異：</b>同系列不同年份、產地、弦數與選配可能不同，逐項核對實際琴款規格。</li>
+<li><b>二手琴檢查：</b>請可信任的樂器技師協助檢查琴頸、琴格、電路、琴橋、旋鈕與維修紀錄。</li>
+</ul></div>
+</div>
+<div class="guide-steps">
+<div class="guide-step"><b>STEP 01</b><h4>先決定弦數</h4><p>四弦、五弦或六弦，依曲目需求和常用調弦決定，不要只因外觀選擇。</p></div>
+<div class="guide-step"><b>STEP 02</b><h4>比較系列定位</h4><p>Combustion／NG 偏向現代量產路線；ABZ、Afterburner、Z 等可研究加拿大製造與客製選項。</p></div>
+<div class="guide-step"><b>STEP 03</b><h4>以實琴規格成交</h4><p>確認序號、年份、配置、保固、配件與總價；型號名稱相同也不代表每把琴規格完全一致。</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-top"><div><div class="eyebrow">04 / DESIGN NOTES</div><h2>Dingwall 的設計特色</h2></div></div>
+<div class="feature-list">
+<div class="feature"><div class="num">01 / MULTI-SCALE</div><h3>扇形指板</h3><p>不同琴弦採用不同有效弦長，低音弦較長、高音弦較短，目標是改善弦張力與低音弦的清晰度。</p></div>
+<div class="feature"><div class="num">02 / PICKUPS</div><h3>多段拾音器配置</h3><p>部分型號使用多組拾音器與多段切換設計，讓玩家能快速切換不同的音色組合。</p></div>
+<div class="feature"><div class="num">03 / LOW-END</div><h3>清晰的低頻輪廓</h3><p>品牌設計理念重視低音弦的音準、延音與清晰度，常見於現代搖滾、金屬與錄音製作。</p></div>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap">DINGWALL / BASS ENCYCLOPEDIA — 非官方粉絲圖鑑示範網站。型號規格會因年份、版本、弦數與選配而不同，請以原廠最新資料為準。<div class="sources"><a href="https://dingwallguitars.com/" target="_blank" rel="noopener">Dingwall 官方網站 ↗</a><a href="https://dingwallguitars.com/compare-basses/" target="_blank" rel="noopener">官方型號比較 ↗</a><a href="https://dingwallguitars.com/bass/ng-adam-nolly-getgood-signature/" target="_blank" rel="noopener">NG 官方規格 ↗</a><a href="https://ysolife.com/dingwall-guitars-afterburner-z-voodoo/" target="_blank" rel="noopener">Dingwall 歷史型號整理 ↗</a></div></div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><button class="close" id="close" aria-label="關閉">×</button><div class="tag" id="modalTag"></div><h2 id="modalTitle"></h2><img class="modal-image" id="modalImage" alt="Dingwall bass model photo"><p class="image-credit" id="imageCredit"></p><p class="modal-desc" id="modalDesc"></p><div class="specs" id="modalSpecs"></div><h3>主要特色</h3><ul id="modalFeatures"></ul><p class="modal-desc" id="modalNote"></p><div class="demo-area"><h3>官方影片 / Demo</h3><p class="demo-status" id="demoStatus">目前尚無官方 Demo</p><div id="demoPlayer"></div></div><a id="officialLink" href="#" target="_blank" rel="noopener">查看 Dingwall 官方資料 ↗</a></div></div>
+<script>
+const models = [
+
+{id:"ng",image:"https://media.promusictools.com/media/catalog/product/cache/08e29bc5ba19b614686dd725d10102af/d/i/dingwall-ng3-nolly-signature-6-dw-ducati-pearl-white-matte-mn-672-10-ffffff.jpg",credit:"ProMusicTools（NG3 商品實拍）",name:"NG Signature",family:"signature",tag:"ARTIST SIGNATURE",code:"NG",short:"與 Adam “Nolly” Getgood 合作開發，結合現代金屬取向與多元音色配置。",desc:"NG 是與 Periphery 貝斯手 Adam “Nolly” Getgood 合作開發的簽名型號。它承襲 Combustion 的部分外型與配置概念，並針對現代搖滾與金屬演奏需求調整音色與操作配置。",strings:"依版本提供 4、5、6 弦",scale:"常見五弦配置為 34–37 吋",build:"依版本與製造批次而異",electronics:"與 Darkglass 合作開發的電子系統（依版本）",features:["以現代 Rock / Metal 音色需求為設計方向。","與 Nolly 合作開發，重視清晰、緊實的低頻輪廓。","外型與整體配置和 Combustion 系列有一定關聯。"],note:"實際拾音器、前級、琴身木材與規格請依 NG 的具體版本確認。",url:"https://dingwallguitars.com/bass/ng-adam-nolly-getgood-signature/"},
+{id:"combustion",demo:"sPcMHgscnjw",image:'https://dingwallguitars.com/wp-content/uploads/2022/07/Combustion-Natural-with-Tortoiseshell-Pickguard-Full-Body-Shot-2200x1467.jpg',credit:'Dingwall 官方網站',name:"Combustion",family:"production",tag:"PRODUCTION SERIES",code:"C",short:"兼顧演出與錄音的量產系列，具備多段拾音器切換與主動／被動功能。",desc:"Combustion 以相對容易入手的方式提供 Dingwall 的多尺度設計與核心音色特色。官方介紹其採混合製造方式，並在加拿大完成最後的品管與設定。",strings:"4、5、6 弦選項（依版本）",scale:"五弦常見 34–37 吋",build:"混合製造；加拿大完成最後整備",electronics:"FD3n 拾音器、EMG 前級與 Quad-Tone 切換（官方列示配置）",features:["Swamp Ash 琴身與五片式楓木琴頸（依版本）。","四段 Quad-Tone 拾音器選擇器，提供多種拾音器組合。","具備主動／被動切換與三段 EQ（依官方列示配置）。"],note:"不同年份、弦數與版本可能有規格差異，請以該把琴的規格表為準。",url:"https://dingwallguitars.com/bass/combustion/"},
+{id:"afterburner",demo:"znA5NaEB8a0",image:"https://ish.guitars/cdn/shop/products/3355_01_740x.jpg?v=1571719628",credit:"Ish Guitars（Afterburner I 歷史琴款照片）",name:"Afterburner I",family:"custom",tag:"CANADIAN SERIES",code:"AB",short:"加拿大製造系列之一，採傳統輪廓搭配 Dingwall 多尺度與客製化電子選項。",desc:"Afterburner I 是 Dingwall 加拿大製造系列中的型號，特色是相對經典的貝斯外型，搭配品牌的扇形指板系統與多種電子配置選擇。",strings:"4、5、6 弦選項",scale:"依弦數約 33.25–37 吋範圍",build:"加拿大製造；Alder 琴身、五片式楓木琴頸（頁面列示）",electronics:"Dingwall FDV 拾音器；前級選項依配置",features:["Alder 琴身與五片式楓木琴頸。","提供不同拾音器數量、主動／被動與前級選項。","適合想要較多客製化選擇的玩家。"],note:"此處以 Afterburner I 官方頁面資訊為主，其他 Afterburner 型號不一定相同。",url:"https://dingwallguitars.com/bass/afterburner-i/"},
+{id:"abz",image:'https://www.themusiczoo.com/cdn/shop/products/46581_Dingwall_ABZ4_5738_2_22d1893e-0054-4414-a2f5-bfb9cce99131_720x720.jpg?v=1578681999',credit:'The Music Zoo',name:"ABZ",family:"production",tag:"PRODUCTION SERIES",code:"ABZ",short:"以 Afterburner 外型為基礎的系列，呈現簡潔直接的 Dingwall 設計。",desc:"ABZ 是 Dingwall 型號家族中的一員，延續品牌多尺度設計與偏現代的演奏取向。可將它視為認識 Dingwall 不同琴身與配置路線的其中一個入口。",strings:"依具體版本確認",scale:"常見 Dingwall 多尺度配置",build:"官方型號規格依年份與版本而異",electronics:"依版本配置",features:["具備 Dingwall 標誌性的扇形指板設計。","外型與 Afterburner 系列有關聯。","琴身木材、拾音器與電路請依個別版本查核。"],note:"ABZ 的規格可能隨年份及版本調整，建議查閱原廠型號頁。",url:"https://dingwallguitars.com/bass/abz/"},
+{id:"droc",demo:"5PXpjPVQzf0",image:'https://www.gitarrebass.de/app/uploads/2020/05/Dingwall-D-Roc-Standard-diagonal.jpg',credit:'Gitarre & Bass',name:"D-Roc Standard",family:"production",tag:"PRODUCTION SERIES",code:"D-R",short:"以辨識度很高的琴身造型為特色，兼具現代外觀與多尺度設計。",desc:"D-Roc 是 Dingwall 相當有辨識度的系列之一，最醒目的特徵是不同於傳統 Jazz 或 Precision Bass 的琴身輪廓。系列內有不同版本與配置。",strings:"依版本確認",scale:"依版本與弦數確認",build:"不同版本的製造地與木材配置可能不同",electronics:"依版本配置",features:["獨特且容易辨識的琴身造型。","延續 Dingwall 多尺度設計理念。","系列內存在不同版本，選購時需確認完整型號名稱。"],note:"D-Roc Standard、D-Roc 等版本不可直接視為相同規格。",url:"https://dingwallguitars.com/bass/d-roc-standard/"},
+{id:"z",image:'https://dingwallguitars.com/wp-content/uploads/2022/06/195285905_4370018473021922_7603831674138283602_n-800x533.jpeg',credit:'Dingwall 官方網站',name:"Z Series",family:"custom",tag:"CANADIAN SERIES",code:"Z",short:"加拿大製造的系列之一，提供多種木材、指板與客製化選項。",desc:"Z 系列展現 Dingwall 在琴身材料、琴頸與指板選項上的客製化方向。官方頁面列出多種木材選擇，適合想深入比較細部配置的玩家。",strings:"5、6 弦規格見官方頁面",scale:"五弦 34–37 吋；六弦 33.25–37 吋（官方列示）",build:"加拿大製造；多種琴身與琴頸木材選項",electronics:"依訂製與版本配置",features:["官方列有 Dual-Density Swamp Ash 等琴身選項。","琴頸與指板提供多種木材選擇。","適合深入研究木材、手感與外觀配置的玩家。"],note:"Z 系列可選項目較多，請以實際訂單或個別琴款規格為準。",url:"https://dingwallguitars.com/bass/z/"}
+,{id:"ng2",image:"https://www.themusiczoo.com/cdn/shop/files/28930__1_a1a603fd-d68e-43f6-94d4-3c08ad94c680-444658_1200x1200.jpg?v=1726495590",credit:"The Music Zoo（NG2 商品照片）",name:"NG2",family:"signature",tag:"NOLLY SIGNATURE",code:"NG2",short:"NG 系列的雙拾音器配置版本，保留 Nolly 系列的現代音色取向。",desc:"NG2 是 Adam ‘Nolly’ Getgood 簽名系列中的型號，與 NG3 同屬 NG 家族，主要差異之一在拾音器配置。購買時應確認具體年份、弦數與電路版本。",strings:"依版本提供 4、5、6 弦",scale:"依弦數與版本確認；常見五弦為 34–37 吋",build:"量產／混合製造系列；依年份確認",electronics:"NG 系列拾音器與 Darkglass Tone Capsule 配置，依版本確認",features:["Nolly Getgood 簽名系列。","相較 NG3，主要辨識點為拾音器數量與配置。","適合比較雙拾音器配置與 NG3 三拾音器配置的玩家。"],note:"NG2 與 NG3 不應只以型號名稱推定所有規格相同；請核對該把琴的年份與官方規格。",url:"https://dingwallguitars.com/bass/ng-adam-nolly-getgood-signature/"}
+,{id:"ng3",image:"https://media.promusictools.com/media/catalog/product/cache/08e29bc5ba19b614686dd725d10102af/d/i/dingwall-ng3-nolly-signature-6-dw-ducati-pearl-white-matte-mn-672-10-ffffff.jpg",credit:"ProMusicTools（NG3 商品照片）",name:"NG3",family:"signature",tag:"NOLLY SIGNATURE",code:"NG3",short:"NG 系列代表型號之一，三組拾音器搭配多段切換，音色選擇範圍廣。",desc:"NG3 是與 Adam ‘Nolly’ Getgood 合作的簽名型號。常見配置包含三組 FD3n 拾音器、Quad-Tone 切換與 Darkglass Tone Capsule 前級，常被用於現代搖滾與金屬音色。",strings:"常見 4、5、6 弦版本",scale:"五弦常見 34–37 吋",build:"量產／混合製造；依年份確認",electronics:"FD3n 拾音器、Darkglass Tone Capsule、Quad-Tone（依版本）",features:["三組拾音器配置，提供多種組合。","Darkglass Tone Capsule 前級與多段 EQ。","以現代 Rock、Metal 與錄音用途為主要方向。"],note:"不同年份與特別版可能有外觀、木材及電子配置差異。",url:"https://dingwallguitars.com/bass/ng-adam-nolly-getgood-signature/"}
+,{id:"afterburner2",image:"https://assets.bassbuddha.com/app/uploads/2022/04/DIngwall-Afterburner-II-Turquoise-Natural-Reverse-Burst-Yellow-Buckeye-Top-1-1800x1800.jpg",credit:"Bass Buddha（Afterburner II 商品照片）",name:"Afterburner II",family:"custom",tag:"CANADIAN SERIES",code:"AB II",short:"Afterburner 家族的高階半空心取向版本，與 Afterburner I 有不同琴身設計。",desc:"Afterburner II 是 Afterburner 系列的另一種配置路線，常見介紹以胡桃木半空心琴身與精選木材面板為特色，聲音與外觀取向不同於實心琴身的 Afterburner I。",strings:"依訂製與版本確認",scale:"依弦數確認",build:"加拿大製造；半空心胡桃木琴身配置（依版本）",electronics:"FDV 拾音器；前級與選項依訂製",features:["半空心琴身設計。","常見胡桃木琴身與特色木紋面板。","與 Afterburner I 的實心琴身定位不同。"],note:"Afterburner II 屬較少見型號，請以實際年份規格與原廠確認為準。",url:"https://dingwallguitars.com/"}
+,{id:"superj",image:"https://dingwallguitars.com/wp-content/uploads/2022/09/Super-J-3x-Darkglass-Swamp-Ash-Trans-White-Maple-Maple-Maccassar-Ebony-Blocks-VS-SN-6475-1467x2200.jpg",credit:"Dingwall 官方網站（Super J 圖片）",name:"Super J",family:"custom",tag:"CANADIAN CUSTOM SHOP",code:"SJ",short:"以 Jazz Bass 為靈感的 Dingwall 版本，保留經典輪廓並採用多尺度設計。",desc:"Super J 是 Dingwall 對傳統 J-style 貝斯的重新詮釋。它以熟悉的雙拾音器琴身語彙，搭配品牌的扇形指板設計，並採用較短的多尺度弦長配置。",strings:"依訂製規格確認",scale:"比品牌標準長尺度短約 2 吋的配置概念；依弦數確認",build:"加拿大 Custom Shop；常見 Alder 琴身與楓木琴頸",electronics:"FDV／Super-Fatty 等選項依訂製",features:["Jazz Bass 風格琴身輪廓。","較短弦長的多尺度設計。","可依需求選擇拾音器與電子配置。"],note:"Custom Shop 選項會隨訂單與年份不同，請以報價單及規格表為準。",url:"https://dingwallguitars.com/"}
+,{id:"superp",image:"https://dingwallguitars.com/wp-content/uploads/2022/06/Super-P-j-Passive-Natural-to-Blackburst-Maple-Wenge-White-Pearloid-Dots-SN-6347-e.jpg",credit:"Dingwall 官方網站（Super P 圖片）",name:"Super P",family:"custom",tag:"CANADIAN CUSTOM SHOP",code:"SP",short:"以 Precision Bass 為靈感的現代多尺度版本，著重簡潔直接的 P-style 音色。",desc:"Super P 是 Dingwall 對傳統 P-style 貝斯的重新設計，將經典單組主拾音器的概念與多尺度琴頸結合，適合偏好直接、厚實音色的玩家。",strings:"依訂製規格確認",scale:"依弦數與訂製規格確認",build:"加拿大 Custom Shop；常見 Alder 琴身",electronics:"FD3 頸拾音器與 FDV／Super-Fatty 橋拾音器配置（依版本）",features:["Precision Bass 風格的單拾音器音色概念。","現代多尺度琴頸設計。","拾音器與電路可依訂製配置調整。"],note:"Super P 與 Super P/J 是不同配置名稱，選購時請確認拾音器組合。",url:"https://dingwallguitars.com/"}
+,{id:"primartist",image:"https://bassfreaks.net/cdn/shop/files/DingwallPrimaArtist0BassFreaks9.jpg?v=1755371138&width=1946",credit:"Bass Freaks（Prima Artist 商品照片）",name:"Prima Artist",family:"custom",tag:"FLAGSHIP / CANADIAN",code:"PA",short:"品牌旗艦級客製系列，重視特殊木材、精細工藝與高階電子配置。",desc:"Prima Artist 是 Dingwall 高階旗艦取向的系列，常見特色包括多層次特殊木材琴身與琴頸、客製化拾音器外觀，以及高階前級配置。",strings:"依訂製規格確認",scale:"依弦數與訂製規格確認",build:"加拿大 Custom Shop；特殊木材與多片式琴頸選項",electronics:"Super-Fatty／FD 系列拾音器與 Glockenklang 前級選項",features:["高階客製化木材與外觀選項。","特殊多片式琴頸與碳纖維補強選項（依訂製）。","高階拾音器與前級配置。"],note:"每把 Prima Artist 可能有顯著不同的木材與硬體配置，應以單把琴的規格表為準。",url:"https://dingwallguitars.com/"}
+,{id:"leesklar",image:"https://www.themusiczoo.com/cdn/shop/files/28734__10_56ea9907-ca2b-4525-b8f7-f21ee14cb5b9-520142_720x720.jpg?v=1726495593",credit:"The Music Zoo（Lee Sklar II Signature 商品照片）",name:"Lee Sklar Signature",family:"signature",tag:"ARTIST SIGNATURE",code:"LS",short:"與資深錄音貝斯手 Lee Sklar 合作的簽名型號，配置與演奏需求具個人特色。",desc:"Lee Sklar Signature 是與錄音室貝斯手 Lee Sklar 合作的簽名型號。常見特色包括雙密度琴身木材、Super-Fatty II 拾音器與 Glockenklang 三段前級等配置。",strings:"以五弦版本為代表；依訂製確認",scale:"依版本確認",build:"加拿大製造；雙密度木材配置（依版本）",electronics:"雙 Super-Fatty II 拾音器、Glockenklang 前級（依版本）",features:["Lee Sklar 個人需求導向的簽名配置。","常見雙 Super-Fatty II 拾音器。","偏向錄音與多元音樂工作的用途。"],note:"簽名琴的木材、拾音器與前級可能依年份或訂製有差異。",url:"https://dingwallguitars.com/"}
+,{id:"jts",image:"https://bassfreaks.net/cdn/shop/files/DingwallJT3_JohnTaylor_4strings-RioDreamLtd0BassFreaks11.jpg?v=1757009527&width=1946",credit:"Bass Freaks（John Taylor JT3 商品照片）",name:"John Taylor Signature / JT3",family:"signature",tag:"ARTIST SIGNATURE",code:"JT3",short:"與 Duran Duran 貝斯手 John Taylor 合作的簽名系列，外觀與音色設計有其個人特色。",desc:"John Taylor Signature（常見以 JT3 稱呼）是 Dingwall 與 Duran Duran 貝斯手 John Taylor 合作的簽名型號，設計靈感與其 Rio 時期的樂器美學有關，並加入個人化規格。",strings:"常見 4、5 弦版本；依型號確認",scale:"依弦數與版本確認",build:"簽名系列；製造與配置依版本確認",electronics:"依簽名規格與版本配置",features:["John Taylor 合作簽名型號。","具有辨識度的外觀細節與配色。","適合想了解 Dingwall 簽名系列的玩家。"],note:"市場上可能以 JT3、John Taylor Signature 等名稱刊登，請確認完整型號與規格。",url:"https://dingwallguitars.com/"}
+,{id:"sp1",image:"https://ish.guitars/cdn/shop/files/IE250101251-6_1200x1200.jpg?v=1749675289",credit:"Ish Guitars（SP1 商品照片）",name:"SP1",family:"production",tag:"READY-TO-PLAY SERIES",code:"SP1",short:"以 P-style 為靈感的入門量產路線，採被動電路與簡潔操作配置。",desc:"SP1 將傳統 P-style 的簡潔操作與 Dingwall 的多尺度理念結合。常見配置採被動電路與 Quad-Tone 拾音器選擇，適合偏好直接控制方式的玩家。",strings:"常見 4、5 弦版本",scale:"依弦數版本確認；比長尺度系列更短",build:"混合製造；依年份與版本確認",electronics:"Dual-P 頸拾音器與 FD3n 橋拾音器；被動 Quad-Tone（依版本）",features:["P-style 外觀與操作概念。","被動電路，不需電池供電（依官方列示版本）。","多段拾音器切換。"],note:"SP1 的弦長與硬體配置不同於 NG／Combustion，購買前請確認實際弦長及手感。",url:"https://dingwallguitars.com/"}
+,{id:"superpj",image:"https://dingwallguitars.com/wp-content/uploads/2022/09/Super-P-j-Passive-Pelham-Blue-Metallic-Maple-Pau-Ferro-VS-SN-6980-1467x2200.jpg",credit:"Dingwall 官方網站（Super P/J 圖片）",name:"Super P/J",family:"custom",tag:"CANADIAN CUSTOM SHOP",code:"P/J",short:"結合 P-style 與 J-style 拾音器概念的客製配置，兼顧厚度與音色變化。",desc:"Super P/J 是 Dingwall Custom Shop 的 P/J 取向配置，結合不同位置與性格的拾音器，提供比單一 P-style 更廣的音色選擇。",strings:"依訂製規格確認",scale:"依弦數與訂製規格確認",build:"加拿大 Custom Shop；依訂製配置",electronics:"P/J 拾音器組合與電路依訂製確認",features:["結合 P-style 與 J-style 拾音器概念。","可依訂製需求調整拾音器與控制配置。","適合想兼顧厚實基礎音色與音色變化的玩家。"],note:"Super P/J 的實際配置需以訂單或單把琴規格表為準。",url:"https://dingwallguitars.com/"}
+,{id:"rvt",image:"https://ish.guitars/cdn/shop/files/7894-2_1200x1200.jpg?v=1777486253",credit:"Ish Guitars（Rob van der Loo Signature D-Roc Custom 商品照片）",name:"Rob Van der Loo Signature",family:"signature",tag:"ARTIST SIGNATURE",code:"RVL",short:"與 Epica 貝斯手 Rob van der Loo 合作的簽名型號，面向現代重型音樂演奏。",desc:"Rob Van der Loo Signature 是 Dingwall 與荷蘭貝斯手 Rob van der Loo 合作的簽名型號，設計方向與現代金屬演奏需求相關。不同販售版本可能在拾音器、外觀與硬體上有所不同。",strings:"依版本確認",scale:"依弦數與版本確認",build:"簽名系列；依版本確認",electronics:"依簽名型號與版本配置",features:["與 Rob van der Loo 合作的簽名系列。","定位偏向現代金屬與重型音樂。","建議核對簽名版本的實際拾音器與前級配置。"],note:"此簽名型號的公開規格資料較少，這裡不推定未確認的細節。",url:"https://dingwallguitars.com/"}
+,{id:"droc-custom",image:"https://ish.guitars/cdn/shop/files/7894-2_1200x1200.jpg?v=1777486253",credit:"Ish Guitars（D-Roc Custom 實際琴款；Rob van der Loo 簽名版本）",name:"D-Roc Custom",family:"custom",tag:"CANADIAN CUSTOM SHOP",code:"D-RC",short:"D-Roc 的加拿大 Custom Shop 路線，可依需求選擇木材、拾音器與細節。",desc:"D-Roc Custom 與量產 D-Roc Standard 的定位不同，Custom Shop 版本可依規格選擇木材、拾音器與外觀細節。",strings:"依訂製規格確認",scale:"依弦數與訂製規格確認",build:"加拿大 Custom Shop；依訂製規格",electronics:"FDV／FD3n 等配置依訂製確認",features:["D-Roc 家族的客製化版本。","可依訂製選擇木材與硬體細節。","與 D-Roc Standard 不應視為完全相同規格。"],note:"請在購買時確認是 D-Roc Standard 或 D-Roc Custom。",url:"https://dingwallguitars.com/"}
+,{id:"combustion53",image:"https://dingwallguitars.com/wp-content/uploads/2022/06/R2P-C3-Combustion-5-String-Pink-to-Black-Burst-Maple-FB-MBV2-3-4-1467x2200.jpg",credit:"Dingwall 官方網站（Combustion 5 弦三拾音器配置）",name:"Combustion 5-3",family:"production",tag:"COMBUSTION VARIANT",code:"C 5-3",short:"Combustion 家族的五弦三拾音器配置版本，提供更廣的拾音器組合。",desc:"Combustion 5-3 通常用來指五弦、三拾音器的 Combustion 配置。它保留 Combustion 系列的多尺度理念，並以三組拾音器增加音色組合彈性。",strings:"五弦",scale:"常見 34–37 吋",build:"Combustion 系列；依年份確認",electronics:"三組 FD3n 拾音器與 Quad-Tone 配置（依版本）",features:["五弦配置，適合需要低 B 弦的演奏者。","三拾音器版本提供多種組合。","可作為 NG3 以外的三拾音器 Dingwall 比較對象。"],note:"商品刊登名稱可能省略部分版本資訊，請核對拾音器數量與前級。",url:"https://dingwallguitars.com/bass/combustion/"}
+,{id:"combustionnash",image:"https://media.sweetwater.com/m/products/image/1cfde6df80cGGdhivz1FDa4pFmTx9yxAECpns0Hk.png?ha=1cfde6df805e6ef6af14529c49d28010922483ae&quality=82&width=750",credit:"Sweetwater（Combustion Nashville Edition 商品照片）",name:"Combustion Nashville",family:"production",tag:"SPECIAL CONFIGURATION",code:"NASH",short:"Combustion 家族的特殊配置／市場版本名稱，購買時需確認具體規格。",desc:"Combustion Nashville 這個名稱會出現在部分經銷商的型號分類或特殊配置刊登中。由於不同市場與年份的命名方式可能不一致，建議把它視為需要逐把核對的 Combustion 變體，而非假設所有規格固定。",strings:"依商品實際規格確認",scale:"依商品實際規格確認",build:"依實際版本與年份確認",electronics:"依實際商品配置確認",features:["屬 Combustion 家族相關特殊配置名稱。","不同經銷商可能使用不同命名方式。","務必以實際琴款照片、序號與規格表確認。"],note:"此條目是型號索引用途，不代表原廠目前固定販售的獨立系列。",url:"https://dingwallguitars.com/"}
+,{id:"voodoo",image:"https://ysolife.com/wp-content/uploads/2026/06/514420005_24438625275734612_3616141233506600359_n.jpg",credit:"樂手巢 YSOLIFE（Voodoo 歷史圖像資料）",name:"Voodoo（歷史型號）",family:"historical",tag:"HISTORICAL / ARCHIVE",code:"VOODOO",short:"Dingwall 早期多尺度設計發展的重要歷史型號，適合品牌沿革研究。",desc:"Voodoo 是 Dingwall 早期發展多尺度貝斯的重要歷史型號之一，相關歷史資料提到 Voodoo Zebra 與 Voodoo Prima 等分支。它們不應與現行量產系列混為一談。",strings:"依歷史版本確認",scale:"依歷史版本確認",build:"早期歷史型號；個體規格差異可能很大",electronics:"依個別歷史琴款確認",features:["呈現 Dingwall 早期對多尺度設計的探索。","具有品牌發展史與收藏研究價值。","型號與配置應以個體資料及可靠史料確認。"],note:"此為歷史索引條目，並非現行在售推薦型號。",url:"https://ysolife.com/dingwall-guitars-afterburner-z-voodoo/"}
+
+];
+const cards=document.getElementById('cards'), search=document.getElementById('search'), count=document.getElementById('count'), empty=document.getElementById('empty');
+let activeFilter='all';
+function render(){
+ const q=search.value.trim().toLowerCase();
+ const list=models.filter(m=>(activeFilter==='all'||m.family===activeFilter)&&[m.name,m.tag,m.short,m.desc,m.code].join(' ').toLowerCase().includes(q));
+ cards.innerHTML=list.map(m=>`<article class="model-card"><div class="card-art">${m.image?`<img src="${m.image}" alt="Dingwall ${m.name} bass" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="fallback" style="display:none">${m.code}</span>`:`<span class="fallback placeholder-art">${m.code}</span>`}</div><div class="card-body"><div class="tag">${m.tag}</div><h3>${m.name}</h3><p>${m.short}</p><div class="card-foot"><span>DINGWALL / MODEL FILE</span><button class="more" data-id="${m.id}">查看資料 ↗</button></div></div></article>`).join('');
+ count.textContent=`顯示 ${list.length} / ${models.length} 個型號`;
+ empty.style.display=list.length?'none':'block';
+ cards.querySelectorAll('[data-id]').forEach(b=>b.addEventListener('click',()=>showModel(b.dataset.id)));
+}
+function showModel(id){
+ const m=models.find(x=>x.id===id); if(!m)return;
+ document.getElementById('modalTag').textContent=m.tag;
+ document.getElementById('modalTitle').textContent=m.name;
+ const modalImage=document.getElementById('modalImage'); modalImage.style.display=m.image?'block':'none'; if(m.image) modalImage.src=m.image; modalImage.alt=`Dingwall ${m.name} bass`;
+ document.getElementById('imageCredit').textContent=m.image?`圖片來源：${m.credit}（外部圖片連結）`:`目前尚未找到可核實的該型號實拍照片。`;
+ document.getElementById('modalDesc').textContent=m.desc;
+ document.getElementById('modalSpecs').innerHTML=[['弦數',m.strings],['弦長',m.scale],['製造／木材',m.build],['拾音器／電路',m.electronics]].map(x=>`<div class="spec"><small>${x[0]}</small><b>${x[1]}</b></div>`).join('');
+ document.getElementById('modalFeatures').innerHTML=m.features.map(x=>`<li>${x}</li>`).join('');
+ document.getElementById('modalNote').textContent=m.note;
+ const demoStatus=document.getElementById('demoStatus');
+ const demoPlayer=document.getElementById('demoPlayer');
+ demoPlayer.innerHTML='';
+ if(m.demo){
+  demoStatus.textContent='此影片由 Dingwall 官方型號頁面內嵌。影片內容以原廠頁面提供為準。';
+  const play=document.createElement('button'); play.type='button'; play.className='demo-button'; play.textContent='▶ 播放官方影片';
+  play.addEventListener('click',()=>{demoPlayer.innerHTML=`<div class="demo-frame"><iframe src="https://www.youtube-nocookie.com/embed/${m.demo}?autoplay=1" title="Dingwall ${m.name} official video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`; play.remove();});
+  demoPlayer.appendChild(play);
+ }else{
+  demoStatus.textContent='目前尚無已核實的 Dingwall 官方 Demo。此型號仍完整保留於百科中。';
+ }
+ document.getElementById('officialLink').href=m.url;
+ modalImage.onerror=()=>{modalImage.style.display='none';document.getElementById('imageCredit').textContent='圖片暫時無法載入，請使用下方原廠資料連結查看型號照片。';};
+ document.getElementById('modal').classList.add('open');
+}
+document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('button[data-filter]');if(!b)return;activeFilter=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));render();});
+search.addEventListener('input',render);
+document.getElementById('clear').addEventListener('click',()=>{search.value='';activeFilter='all';document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x.dataset.filter==='all'));render();search.focus();});
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('close').addEventListener('click',closeModal);
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+document.getElementById('recommendBtn').addEventListener('click',()=>{
+ const budget=document.getElementById('budget').value;
+ const strings=document.getElementById('strings').value;
+ const style=document.getElementById('style').value;
+ let id='combustion', reason='Combustion 是認識 Dingwall 多尺度設計的實用起點，兼顧舞台與錄音用途。';
+ if(budget==='premium'||style==='custom') { id='z'; reason='Z 系列適合把木材、指板、拾音器與前級選項納入考量，走更深入的加拿大製造／客製化方向。'; }
+ else if(style==='metal') { id='ng'; reason='NG Signature 與 Nolly 合作開發，搭配 FD3n 拾音器與 Darkglass Tone Capsule，定位明確偏向現代 Rock／Metal。'; }
+ else if(style==='vintage') { id='abz'; reason='ABZ 提供不同拾音器與電路配置，能探索較多元的音色方向，也保留 Dingwall 多尺度特色。'; }
+ else if(budget==='mid') { id='afterburner'; reason='Afterburner I 是加拿大製造系列，並提供不同拾音器、前級與木材選項，適合想進一步挑配置的人。'; }
+ else { id='combustion'; reason='Combustion 以實用與價值為定位，適合作為第一把 Dingwall 的比較基準。'; }
+ const m=models.find(x=>x.id===id);
+ let fit=strings==='any'?'弦數可依常用調弦與曲目再決定。':`${strings} 弦需求：請確認你選中的實際版本有提供該弦數。`;
+ const extra=(style==='metal'&&id!=='ng')?'若以現代金屬為主，也可以把 NG 一起列入試琴清單。':(strings==='5'?'五弦版本請特別試低 B 弦張力與右手弦距。':'記得確認該型號實際年份與配置。');
+ const result=document.getElementById('recommendResult');
+ result.innerHTML=`<div class="tag">YOUR STARTING POINT</div><h4>${m.name}</h4><p>${reason}</p><p>${fit}</p><p>${extra}</p><p><button type="button" class="more" id="openRecommended">查看 ${m.name} 圖鑑資料 ↗</button></p>`;
+ result.classList.add('show');
+ document.getElementById('openRecommended').addEventListener('click',()=>showModel(id));
+});
+
+render();
+</script>
+</body></html>
